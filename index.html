@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Pic</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="rules">
+            <h1>Favourite Pic 📸</h1>
+            <h3><u>Rules:</u> Insert your name, press start and choose your favourite between each pair of images!</h3>
+        </div>
+    </header>
+    <main>
+
+        <section id="start-section">
+            <label for="start-btn"> Enter player name:</label>
+            <input class="name-input" type="text">
+            <button id="start-btn">START GAME</button>
+        </section>
+
+        <section id="game-section">
+            <div class="container">
+                <img id="pic-one" class="grid-item"
+                    src="./images/placeholder1.jpg"
+                    alt="first-pic">
+                <img id="pic-two" class="grid-item"
+                    src="./images/placeholder2.jpg"
+                    alt="second-pic">
+            </div>
+        </section>
+
+        <section>
+            <h3 id="result"></h3>
+           <!--  <h3>Congratulations Player! You are a foodie!🥗</h3>
+            <h3>Congratulations Player! You are not a foodie!🍹</h3> -->
+        </section>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./index.js"></script>
+</body>
+
+</html>

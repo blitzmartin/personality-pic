@@ -1,0 +1,111 @@
+:root {
+    --col-light: rgb(255, 255, 255);
+    --col-dark: rgb(42, 42, 42);
+    --col-accent: rgb(241, 82, 8);
+
+    --font-primary: Helvetica, sans-serif;
+    --font-accent: Garamond, serif;
+}
+
+*,
+* ::after,
+* ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--col-dark);
+    background-color: var(--col-light);
+}
+
+header {
+    background-color: var(--col-accent);
+    margin: 0;
+    padding: 3rem 0;
+}
+
+
+h1 {
+    font-size: 5rem;
+    color: var(--col-light);
+    font-family: var(--font-accent);
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    font-weight: lighter;
+}
+
+label {
+    font-size: 2rem;
+    font-family: monospace;
+    margin-bottom: 1rem;
+}
+
+input {
+    font-size: 2rem;
+    border: 2px solid var(--col-dark);
+    border-radius: 5px;
+    padding: 0.5rem 0.2rem;
+}
+
+input:focus {
+    outline: none !important;
+    border-color: var(--col-accent);
+}
+
+button {
+    background-color: var(--col-accent);
+    color: var(--col-light);
+    font-family: monospace;
+    font-weight: lighter;
+    font-size: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    margin: 2rem 0;
+    border: 2px solid var(--col-dark);
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    color: var(--col-accent);
+    background-color: var(--col-dark);
+}
+
+.rules {
+    margin: 0 25vw;
+}
+
+#start-section {
+    display: grid;
+    grid-template-rows:repeat(1, 1fr);
+    justify-content: center;
+    padding: 2rem 20rem;
+}
+
+.container {
+    margin: 2rem 20%;
+    padding: 2rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 16px;
+    justify-content: center;
+    background-color: var(--col-dark);
+}
+
+.grid-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grid-item:hover {
+    cursor: pointer;
+}
