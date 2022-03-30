@@ -110,18 +110,11 @@ function loadPicture(event) {
 
 function endGame(playerName, picArray) {
 
-    function generatePersonality() {
-        const personalityArray = ["nice", "adventurous", "courageous", "diligent", "humble", "grumpy"];
-        let personality = personalityArray[Math.floor(Math.random() * personalityArray.length)];
-        return personality;
-    }
-
     const personality = generatePersonality();
-    result.innerHTML = `${playerName}, this is what this picture says about your personality: you are ${personality}`;
+    result.innerHTML = `${playerName}, this is what this picture says about your personality: you are ${personality}.`;
     
         containerDiv.remove();
 
-        
         const resultDiv = document.createElement('div');  
         resultDiv.classList.add('resultDiv');
 
@@ -130,8 +123,13 @@ function endGame(playerName, picArray) {
         finalPic.classList.add('grid-item');
 
         resultDiv.appendChild(finalPic);
-        picSection.appendChild(resultDiv);
-        
+        picSection.appendChild(resultDiv); 
 
+}
+
+function generatePersonality() {
+    const personalityArray = ["nice", "adventurous", "courageous", "diligent", "humble", "grumpy"];
+    let personality = personalityArray[Math.floor(Math.random() * personalityArray.length)];
+    return personality;
 }
 
