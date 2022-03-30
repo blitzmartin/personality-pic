@@ -1,6 +1,7 @@
 //SELECTORS
 const containerDiv = document.querySelector('.container');
 const picSection = document.querySelector('#game-section');
+const startSection = document.querySelector('#start-section');
 const startBtn = document.getElementById("start-btn");
 const inputBox = document.querySelector('.name-input');
 const picOne = document.querySelector("#pic-one");
@@ -85,6 +86,7 @@ function endGame(playerName, picArray) {
     result.innerHTML = `${playerName}, this is what this picture says about your personality: you are ${personality}.`;
 
     containerDiv.remove();
+    startSection.remove();
 
     const resultDiv = document.createElement('div');
     resultDiv.classList.add('resultDiv');
@@ -100,9 +102,6 @@ function endGame(playerName, picArray) {
     refreshBtn.setAttribute('onClick', 'window.location.reload();');
     refreshBtn.innerHTML = "RESTART GAME";
     resultSection.appendChild(refreshBtn);
-
-  /*   <button onClick="window.location.reload();">Refresh Page</button> */
-
 }
 
 
