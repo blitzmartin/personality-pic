@@ -29,6 +29,7 @@ Hidden paragraph is revealed: "playerName your favourite food or drink is:"" and
 
 //SELECTORS
 const containerDiv = document.querySelector('.container');
+const picSection = document.querySelector('#game-section');
 const startBtn = document.getElementById("start-btn");
 const inputBox = document.querySelector('.name-input');
 const picOne = document.querySelector("#pic-one");
@@ -86,13 +87,6 @@ function loadPicture(event) {
                 picTwo.src = picArray[picArray.length - 1];
             } else if (picArray.length === 1) {
 
-/*              const finalPic = document.createElement('img');
-                containerDiv.classList.add('.containerForOne');
-                containerDiv.classList.remove('.container');   
-                finalPic.src = picArray[0];
-                finalPic.classList.add('grid-item');
-                containerDiv.appendChild(finalPic); */
-
                 endGame(playerName, picArray);
                 picOne.removeEventListener('click', picOneClic);
                 picTwo.removeEventListener('click', picTwoClic); 
@@ -104,13 +98,6 @@ function loadPicture(event) {
                 picArray.shift();
                 picOne.src = picArray[0];
             } else if (picArray.length === 1) {
-
-      /*        const finalPic = document.createElement('img');
-                containerDiv.classList.add('.containerForOne');
-                containerDiv.classList.remove('.container');
-                finalPic.src = picArray[0];
-                finalPic.classList.add('grid-item');
-                containerDiv.appendChild(finalPic); */
 
                 endGame(playerName, picArray);
                 picOne.removeEventListener('click', picOneClic);
@@ -131,15 +118,20 @@ function endGame(playerName, picArray) {
 
     const personality = generatePersonality();
     result.innerHTML = `${playerName}, this is what this picture says about your personality: you are ${personality}`;
-
-    /*     const finalPic = document.createElement('img');
     
-        containerDiv.classList.add('.containerForOne');
-        containerDiv.classList.remove('.container');
+        containerDiv.remove();
+
         
+        const resultDiv = document.createElement('div');  
+        resultDiv.classList.add('resultDiv');
+
+        const finalPic = document.createElement('img');
         finalPic.src = picArray[0];
         finalPic.classList.add('grid-item');
-        containerDiv.appendChild(finalPic);   */
+
+        resultDiv.appendChild(finalPic);
+        picSection.appendChild(resultDiv);
+        
 
 }
 

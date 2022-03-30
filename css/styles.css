@@ -84,7 +84,7 @@ button:hover {
 
 #start-section {
     display: grid;
-    grid-template-rows:repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     justify-content: center;
     padding: 2rem 20rem;
 }
@@ -100,16 +100,6 @@ button:hover {
     background-color: var(--col-dark);
 }
 
-.containerForOne {
-    margin: 2rem 20%;
-    padding: 2rem 3rem;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-auto-rows: auto;
-    gap: 16px;
-    justify-content: center;
-    background-color: var(--col-dark);
-}
 
 .grid-item {
     width: 100%;
@@ -119,4 +109,12 @@ button:hover {
 
 .grid-item:hover {
     cursor: pointer;
+}
+
+.resultDiv {
+    margin: 2rem 25%;
+    padding: 1rem 1.5rem;
+    display: grid;
+    justify-content: center;
+    background-color: var(--col-dark);
 }
