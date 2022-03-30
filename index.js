@@ -1,32 +1,3 @@
-/*
-
-Initial condition: no player name, placeholders for the 2 images, hidden paragraph-result somewhere in the page
-
-Fetch URL of 20 images, push urls values in an const array of items
-
-Player inputs name
-
-Start btn is pressed
-
-Player name stored in a playerName const
-
-Input field is cleared
-
-Change the src of the 2 images: pic-one will get urls of array[0] and pic-two will get urls of array[array.length - 1]
-
-One of the two images is clicked
-
-If pic-one is clicked, array.pop() (removes last item)
-If pic-two is clicked, array.shift() (removes first item)
-
-Do this until (array.length > 1)
-
-When array.length === 1, the game ends.
-
-Hidden paragraph is revealed: "playerName your favourite food or drink is:"" and image below
-
-*/
-
 //SELECTORS
 const containerDiv = document.querySelector('.container');
 const picSection = document.querySelector('#game-section');
@@ -37,7 +8,7 @@ const picTwo = document.querySelector("#pic-two");
 const result = document.querySelector('#result');
 
 const picArray = [];
-const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=20&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting 20 images
+const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=6&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting 20 images
 
 
 fetch(URL)
@@ -60,10 +31,9 @@ fetch(URL)
         console.log("Something went wrong: " + err)
     })
 
+
 //EVENT LISTENERS
 startBtn.addEventListener('click', loadPicture);
-
-
 
 //FUNCTIONS
 
@@ -86,10 +56,9 @@ function loadPicture(event) {
                 picArray.pop();
                 picTwo.src = picArray[picArray.length - 1];
             } else if (picArray.length === 1) {
-
                 endGame(playerName, picArray);
                 picOne.removeEventListener('click', picOneClic);
-                picTwo.removeEventListener('click', picTwoClic); 
+                picTwo.removeEventListener('click', picTwoClic);
             }
         }
 
@@ -101,9 +70,10 @@ function loadPicture(event) {
 
                 endGame(playerName, picArray);
                 picOne.removeEventListener('click', picOneClic);
-                picTwo.removeEventListener('click', picTwoClic); 
+                picTwo.removeEventListener('click', picTwoClic);
             }
         }
+
     }
 }
 
@@ -112,24 +82,25 @@ function endGame(playerName, picArray) {
 
     const personality = generatePersonality();
     result.innerHTML = `${playerName}, this is what this picture says about your personality: you are ${personality}.`;
-    
-        containerDiv.remove();
 
-        const resultDiv = document.createElement('div');  
-        resultDiv.classList.add('resultDiv');
+    containerDiv.remove();
 
-        const finalPic = document.createElement('img');
-        finalPic.src = picArray[0];
-        finalPic.classList.add('grid-item');
+    const resultDiv = document.createElement('div');
+    resultDiv.classList.add('resultDiv');
 
-        resultDiv.appendChild(finalPic);
-        picSection.appendChild(resultDiv); 
+    const finalPic = document.createElement('img');
+    finalPic.src = picArray[0];
+    finalPic.classList.add('grid-item');
+
+    resultDiv.appendChild(finalPic);
+    picSection.appendChild(resultDiv);
 
 }
 
+
+//returns a random
 function generatePersonality() {
-    const personalityArray = ["nice", "adventurous", "courageous", "diligent", "humble", "grumpy"];
-    let personality = personalityArray[Math.floor(Math.random() * personalityArray.length)];
-    return personality;
+    const personalityArray = ["nice", "adventurous", "courageous", "diligent", "humble", "grumpy", "honest", "shy", "strong", "organized", "reckless", "passionate", "idealist", "creative", "energetic", "curious", "clever", "practical", "compassionate", "cheerful", "spontaneous"];
+    return personalityArray[Math.floor(Math.random() * personalityArray.length)];
 }
 
