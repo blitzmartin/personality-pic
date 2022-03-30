@@ -80,6 +80,7 @@ function loadPicture(event) {
             if (picArray.length > 1) {
                 picArray.pop();
                 picTwo.src = picArray[picArray.length - 1];
+                endGame(playerName);
             } 
         });
 
@@ -87,12 +88,15 @@ function loadPicture(event) {
             if (picArray.length > 1) {
                 picArray.shift();
                 picOne.src = picArray[0];
+                endGame(playerName);
             }
         });
-    /*     if (picArray.length === 1) {
-            result.innerHTML = `Congratulations ${playerName} for choosing this amazing Lego image!`;
-        } */
     }
+}
+
+function endGame(playerName){
+    result.innerHTML = `Congratulations ${playerName} for choosing this amazing Lego image!`;
+
 }
 
 
