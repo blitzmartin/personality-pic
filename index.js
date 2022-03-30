@@ -110,7 +110,7 @@ function endGame(playerName, picArray) {
 
 //returns a random
 function generatePersonality() {
-    const personalityArray = ["nice", "adventurous", "courageous", "diligent", "humble", "grumpy", "honest", "shy", "strong", "organized", "reckless", "passionate", "idealist", "creative", "energetic", "curious", "clever", "practical", "compassionate", "cheerful", "spontaneous"];
+    const personalityArray = ["adventurous", "courageous", "diligent", "humble", "grumpy", "honest", "shy", "strong", "organized", "reckless", "passionate", "idealist", "creative", "energetic", "curious", "clever", "practically perfect in every way", "compassionate", "cheerful", "spontaneous"];
     return personalityArray[Math.floor(Math.random() * personalityArray.length)];
 }
 
