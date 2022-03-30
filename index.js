@@ -86,7 +86,7 @@ function loadPicture(event) {
 function endGame(playerName, picArray) {
 
     const personality = generatePersonality();
-    result.innerHTML = `${playerName}, this is what this picture says about your personality: you are <b> ${personality} </b>.`;
+    result.innerHTML = `${playerName}, this is what this picture says about your personality: you are <b> ${personality}</b>.`;
 
     containerDiv.remove();
     startSection.remove();
