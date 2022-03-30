@@ -28,6 +28,7 @@ Hidden paragraph is revealed: "playerName your favourite food or drink is:"" and
 */
 
 //SELECTORS
+const containerDiv = document.querySelector('.container');
 const startBtn = document.getElementById("start-btn");
 const inputBox = document.querySelector('.name-input');
 const picOne = document.querySelector("#pic-one");
@@ -35,7 +36,7 @@ const picTwo = document.querySelector("#pic-two");
 const result = document.querySelector('#result');
 
 const picArray = [];
-const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=20&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting 20 images
+const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=4&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting 20 images
 
 
 fetch(URL)
@@ -49,7 +50,7 @@ fetch(URL)
     .then(function (data) {
 
         for (let i = 0; i < data.length; i++) {
-            picArray.push(data[i].urls.regular);
+            picArray.push(data[i].urls.small);
         }
         console.log(picArray);
 
@@ -66,7 +67,7 @@ startBtn.addEventListener('click', loadPicture);
 //FUNCTIONS
 
 function loadPicture(event) {
-    
+
     if (inputBox.value.length > 0) {
 
         const playerName = inputBox.value;
@@ -76,33 +77,69 @@ function loadPicture(event) {
         picOne.src = picArray[0];
         picTwo.src = picArray[picArray.length - 1];
 
-        picOne.addEventListener('click', function () {
+        picOne.addEventListener('click', picOneClic);
+        picTwo.addEventListener('click', picTwoClic);
+
+        function picOneClic() {
             if (picArray.length > 1) {
                 picArray.pop();
                 picTwo.src = picArray[picArray.length - 1];
-                endGame(playerName);
-            } 
-        });
+            } else if (picArray.length === 1) {
 
-        picTwo.addEventListener('click', function () {
+/*              const finalPic = document.createElement('img');
+                containerDiv.classList.add('.containerForOne');
+                containerDiv.classList.remove('.container');   
+                finalPic.src = picArray[0];
+                finalPic.classList.add('grid-item');
+                containerDiv.appendChild(finalPic); */
+
+                endGame(playerName, picArray);
+                picOne.removeEventListener('click', picOneClic);
+                picTwo.removeEventListener('click', picTwoClic); 
+            }
+        }
+
+        function picTwoClic() {
             if (picArray.length > 1) {
                 picArray.shift();
                 picOne.src = picArray[0];
-                endGame(playerName);
+            } else if (picArray.length === 1) {
+
+      /*        const finalPic = document.createElement('img');
+                containerDiv.classList.add('.containerForOne');
+                containerDiv.classList.remove('.container');
+                finalPic.src = picArray[0];
+                finalPic.classList.add('grid-item');
+                containerDiv.appendChild(finalPic); */
+
+                endGame(playerName, picArray);
+                picOne.removeEventListener('click', picOneClic);
+                picTwo.removeEventListener('click', picTwoClic); 
             }
-        });
+        }
     }
 }
 
-function endGame(playerName){
-    result.innerHTML = `Congratulations ${playerName} for choosing this amazing Lego image!`;
+
+function endGame(playerName, picArray) {
+
+    function generatePersonality() {
+        const personalityArray = ["nice", "adventurous", "courageous", "diligent", "humble", "grumpy"];
+        let personality = personalityArray[Math.floor(Math.random() * personalityArray.length)];
+        return personality;
+    }
+
+    const personality = generatePersonality();
+    result.innerHTML = `${playerName}, this is what this picture says about your personality: you are ${personality}`;
+
+    /*     const finalPic = document.createElement('img');
+    
+        containerDiv.classList.add('.containerForOne');
+        containerDiv.classList.remove('.container');
+        
+        finalPic.src = picArray[0];
+        finalPic.classList.add('grid-item');
+        containerDiv.appendChild(finalPic);   */
 
 }
 
-
-/* 
-const URL = "https://api.unsplash.com/photos/random?collections=1131562&orientation=portrait&count=10&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; 
-
-const URL = "https://api.unsplash.com/photos/random?count=10&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ";
-
-*/
