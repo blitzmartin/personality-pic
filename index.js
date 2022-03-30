@@ -6,6 +6,7 @@ const inputBox = document.querySelector('.name-input');
 const picOne = document.querySelector("#pic-one");
 const picTwo = document.querySelector("#pic-two");
 const result = document.querySelector('#result');
+const resultSection = document.querySelector('#resultSection');
 
 const picArray = [];
 const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=6&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting n random images
@@ -94,6 +95,13 @@ function endGame(playerName, picArray) {
 
     resultDiv.appendChild(finalPic);
     picSection.appendChild(resultDiv);
+
+    const refreshBtn = document.createElement('button');
+    refreshBtn.setAttribute('onClick', 'window.location.reload();');
+    refreshBtn.innerHTML = "RESTART GAME";
+    resultSection.appendChild(refreshBtn);
+
+  /*   <button onClick="window.location.reload();">Refresh Page</button> */
 
 }
 
