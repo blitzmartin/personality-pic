@@ -10,7 +10,7 @@ const result = document.querySelector('#result');
 const resultSection = document.querySelector('#resultSection');
 
 const picArray = [];
-const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=6&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting n random images
+const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=10&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting n random images
 
 
 fetch(URL)
@@ -54,10 +54,12 @@ function loadPicture(event) {
         picTwo.addEventListener('click', picTwoClic);
 
         function picOneClic() {
-            if (picArray.length > 1) {
+            if (picArray.length > 2) {
                 picArray.pop();
                 picTwo.src = picArray[picArray.length - 1];
-            } else if (picArray.length === 1) {
+            } else if (picArray.length === 2) {
+                picArray.pop();
+                picTwo.src = picArray[picArray.length - 1];
                 endGame(playerName, picArray);
                 picOne.removeEventListener('click', picOneClic);
                 picTwo.removeEventListener('click', picTwoClic);
@@ -65,11 +67,12 @@ function loadPicture(event) {
         }
 
         function picTwoClic() {
-            if (picArray.length > 1) {
+            if (picArray.length > 2) {
                 picArray.shift();
                 picOne.src = picArray[0];
-            } else if (picArray.length === 1) {
-
+            } else if (picArray.length === 2) {
+                picArray.shift();
+                picOne.src = picArray[0];
                 endGame(playerName, picArray);
                 picOne.removeEventListener('click', picOneClic);
                 picTwo.removeEventListener('click', picTwoClic);
