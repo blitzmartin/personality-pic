@@ -89,6 +89,10 @@ button:hover {
     padding: 2rem 20rem;
 }
 
+#result {
+    margin: 0 20%;
+}
+
 .container {
     margin: 2rem 20%;
     padding: 2rem 3rem;

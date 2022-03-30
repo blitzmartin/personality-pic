@@ -37,7 +37,7 @@ const picTwo = document.querySelector("#pic-two");
 const result = document.querySelector('#result');
 
 const picArray = [];
-const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=4&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting 20 images
+const URL = "https://api.unsplash.com/photos/random?orientation=portrait&count=20&client_id=Z4VtZg5imv416TqNew-jUC7wGSEMVvWlWojNat291VQ"; // getting 20 images
 
 
 fetch(URL)
